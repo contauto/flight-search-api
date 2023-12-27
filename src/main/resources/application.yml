@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: flight-search-api
+  datasource:
+    url: jdbc:postgresql://localhost:5432/airport
+    username: postgres
+    password: 123
+  jpa:
+    hibernate:
+      ddl-auto: update
+server:
+  port: 3535
+
+secret:
+  key: zCoSeBvkWpWq2ZGAXDhE+AYp38blL07EZIoMFYwd1VCFNh2VJ8PbB4jaP1fAYPBRvmLXoZ7+HMTRAJ2NPvTehw==
