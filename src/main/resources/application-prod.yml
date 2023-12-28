@@ -2,18 +2,18 @@ spring:
   application:
     name: flight-search-api
   datasource:
-    url: jdbc:postgresql://localhost:5432/airport_default
+    url: jdbc:postgresql://localhost:5432/airport_prod
     username: postgres
     password: 123
   jpa:
     hibernate:
-      ddl-auto: create-drop
+      ddl-auto: update
 
 
 
 api:
   flight:
-    url: https://api.amadeus.com/default/new-flights
+    url: https://api.amadeus.com/prod/new-flights
 server:
   port: 3535
 

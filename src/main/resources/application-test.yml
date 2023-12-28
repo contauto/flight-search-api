@@ -2,7 +2,7 @@ spring:
   application:
     name: flight-search-api
   datasource:
-    url: jdbc:postgresql://localhost:5432/airport_default
+    url: jdbc:postgresql://localhost:5432/airport_test
     username: postgres
     password: 123
   jpa:
@@ -13,7 +13,7 @@ spring:
 
 api:
   flight:
-    url: https://api.amadeus.com/default/new-flights
+    url: https://api.amadeus.com/test/new-flights
 server:
   port: 3535
 

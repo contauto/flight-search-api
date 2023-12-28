@@ -1,8 +1,7 @@
 package com.berkemaktav.flightsearchapi.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import com.berkemaktav.flightsearchapi.validation.UniqueCity;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 
 import java.util.Objects;
@@ -11,8 +10,10 @@ import java.util.Objects;
 @Table(name = "airports")
 public class Airport {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     @NotNull
+    @UniqueCity
     private String cityName;
 
     public Airport() {
