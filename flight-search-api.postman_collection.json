@@ -1,0 +1,1111 @@
+{
+	"info": {
+		"_postman_id": "79c8ba12-4960-471c-b44c-61c46d8f6caf",
+		"name": "flight-search-api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "31494526"
+	},
+	"item": [
+		{
+			"name": "api",
+			"item": [
+				{
+					"name": "1.0",
+					"item": [
+						{
+							"name": "flights",
+							"item": [
+								{
+									"name": "{id}",
+									"item": [
+										{
+											"name": "get flight by id",
+											"request": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/1.0/flights/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"1.0",
+														"flights",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "<long>",
+															"description": "(Required) "
+														}
+													]
+												}
+											},
+											"response": [
+												{
+													"name": "Flight retrieved successfully",
+													"originalRequest": {
+														"method": "GET",
+														"header": [
+															{
+																"key": "Accept",
+																"value": "application/json"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/api/1.0/flights/:id",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"api",
+																"1.0",
+																"flights",
+																":id"
+															],
+															"variable": [
+																{
+																	"key": "id"
+																}
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json"
+														}
+													],
+													"cookie": [],
+													"body": "{\n  \"arrivalTime\": \"<dateTime>\",\n  \"departureTime\": \"<dateTime>\",\n  \"price\": \"<double>\",\n  \"id\": \"<long>\",\n  \"departureAirport\": {\n    \"cityName\": \"<string>\",\n    \"id\": \"<long>\"\n  },\n  \"arrivalAirport\": {\n    \"cityName\": \"<string>\",\n    \"id\": \"<long>\"\n  }\n}"
+												}
+											]
+										},
+										{
+											"name": "update flight by id",
+											"request": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"arrivalTime\": \"<dateTime>\",\n  \"departureTime\": \"<dateTime>\",\n  \"price\": \"<double>\",\n  \"id\": \"<long>\",\n  \"departureAirport\": {\n    \"cityName\": \"<string>\",\n    \"id\": \"<long>\"\n  },\n  \"arrivalAirport\": {\n    \"cityName\": \"<string>\",\n    \"id\": \"<long>\"\n  }\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/1.0/flights/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"1.0",
+														"flights",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "<long>",
+															"description": "(Required) "
+														}
+													]
+												}
+											},
+											"response": [
+												{
+													"name": "Flight updated successfully",
+													"originalRequest": {
+														"method": "PUT",
+														"header": [
+															{
+																"key": "Content-Type",
+																"value": "application/json"
+															},
+															{
+																"key": "Accept",
+																"value": "application/json"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n  \"arrivalTime\": \"<dateTime>\",\n  \"departureTime\": \"<dateTime>\",\n  \"price\": \"<double>\",\n  \"id\": \"<long>\",\n  \"departureAirport\": {\n    \"cityName\": \"<string>\",\n    \"id\": \"<long>\"\n  },\n  \"arrivalAirport\": {\n    \"cityName\": \"<string>\",\n    \"id\": \"<long>\"\n  }\n}",
+															"options": {
+																"raw": {
+																	"headerFamily": "json",
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{baseUrl}}/api/1.0/flights/:id",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"api",
+																"1.0",
+																"flights",
+																":id"
+															],
+															"variable": [
+																{
+																	"key": "id"
+																}
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json"
+														}
+													],
+													"cookie": [],
+													"body": "{\n  \"arrivalTime\": \"<dateTime>\",\n  \"departureTime\": \"<dateTime>\",\n  \"price\": \"<double>\",\n  \"id\": \"<long>\",\n  \"departureAirport\": {\n    \"cityName\": \"<string>\",\n    \"id\": \"<long>\"\n  },\n  \"arrivalAirport\": {\n    \"cityName\": \"<string>\",\n    \"id\": \"<long>\"\n  }\n}"
+												}
+											]
+										},
+										{
+											"name": "delete flight by id",
+											"request": {
+												"method": "DELETE",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/1.0/flights/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"1.0",
+														"flights",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "<long>",
+															"description": "(Required) "
+														}
+													]
+												}
+											},
+											"response": [
+												{
+													"name": "Flight deleted successfully",
+													"originalRequest": {
+														"method": "DELETE",
+														"header": [
+															{
+																"key": "Accept",
+																"value": "application/json"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/api/1.0/flights/:id",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"api",
+																"1.0",
+																"flights",
+																":id"
+															],
+															"variable": [
+																{
+																	"key": "id"
+																}
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json"
+														}
+													],
+													"cookie": [],
+													"body": "{\n  \"arrivalTime\": \"<dateTime>\",\n  \"departureTime\": \"<dateTime>\",\n  \"price\": \"<double>\",\n  \"id\": \"<long>\",\n  \"departureAirport\": {\n    \"cityName\": \"<string>\",\n    \"id\": \"<long>\"\n  },\n  \"arrivalAirport\": {\n    \"cityName\": \"<string>\",\n    \"id\": \"<long>\"\n  }\n}"
+												}
+											]
+										}
+									]
+								},
+								{
+									"name": "all",
+									"item": [
+										{
+											"name": "get all flights",
+											"request": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/1.0/flights/all",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"1.0",
+														"flights",
+														"all"
+													]
+												}
+											},
+											"response": [
+												{
+													"name": "Flights retrieved successfully",
+													"originalRequest": {
+														"method": "GET",
+														"header": [
+															{
+																"key": "Accept",
+																"value": "application/json"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/api/1.0/flights/all",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"api",
+																"1.0",
+																"flights",
+																"all"
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json"
+														}
+													],
+													"cookie": [],
+													"body": "{\n  \"arrivalTime\": \"<dateTime>\",\n  \"departureTime\": \"<dateTime>\",\n  \"price\": \"<double>\",\n  \"id\": \"<long>\",\n  \"departureAirport\": {\n    \"cityName\": \"<string>\",\n    \"id\": \"<long>\"\n  },\n  \"arrivalAirport\": {\n    \"cityName\": \"<string>\",\n    \"id\": \"<long>\"\n  }\n}"
+												}
+											]
+										}
+									]
+								},
+								{
+									"name": "add flight",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/1.0/flights?arrivalTime=<dateTime>&departureTime=<dateTime>&price=<double>&id=<long>&departureAirport=[object Object]&arrivalAirport=[object Object]",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"1.0",
+												"flights"
+											],
+											"query": [
+												{
+													"key": "arrivalTime",
+													"value": "<dateTime>",
+													"description": "(Required) "
+												},
+												{
+													"key": "departureTime",
+													"value": "<dateTime>",
+													"description": "(Required) "
+												},
+												{
+													"key": "price",
+													"value": "<double>",
+													"description": "(Required) "
+												},
+												{
+													"key": "id",
+													"value": "<long>",
+													"description": "(Required) "
+												},
+												{
+													"key": "departureAirport",
+													"value": "[object Object]",
+													"description": "(Required) "
+												},
+												{
+													"key": "arrivalAirport",
+													"value": "[object Object]",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "Flight added successfully",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/1.0/flights?arrivalTime=<dateTime>&departureTime=<dateTime>&price=<double>&id=<long>&departureAirport=[object Object]&arrivalAirport=[object Object]",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"1.0",
+														"flights"
+													],
+													"query": [
+														{
+															"key": "arrivalTime",
+															"value": "<dateTime>",
+															"description": "(Required) "
+														},
+														{
+															"key": "departureTime",
+															"value": "<dateTime>",
+															"description": "(Required) "
+														},
+														{
+															"key": "price",
+															"value": "<double>",
+															"description": "(Required) "
+														},
+														{
+															"key": "id",
+															"value": "<long>",
+															"description": "(Required) "
+														},
+														{
+															"key": "departureAirport",
+															"value": "[object Object]",
+															"description": "(Required) "
+														},
+														{
+															"key": "arrivalAirport",
+															"value": "[object Object]",
+															"description": "(Required) "
+														}
+													]
+												}
+											},
+											"status": "Created",
+											"code": 201,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"arrivalTime\": \"<dateTime>\",\n  \"departureTime\": \"<dateTime>\",\n  \"price\": \"<double>\",\n  \"id\": \"<long>\",\n  \"departureAirport\": {\n    \"cityName\": \"<string>\",\n    \"id\": \"<long>\"\n  },\n  \"arrivalAirport\": {\n    \"cityName\": \"<string>\",\n    \"id\": \"<long>\"\n  }\n}"
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "airports",
+							"item": [
+								{
+									"name": "{id}",
+									"item": [
+										{
+											"name": "Get airport by id",
+											"request": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/1.0/airports/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"1.0",
+														"airports",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "<long>",
+															"description": "(Required) "
+														}
+													]
+												}
+											},
+											"response": [
+												{
+													"name": "Airport retrieved successfully",
+													"originalRequest": {
+														"method": "GET",
+														"header": [
+															{
+																"key": "Accept",
+																"value": "application/json"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/api/1.0/airports/:id",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"api",
+																"1.0",
+																"airports",
+																":id"
+															],
+															"variable": [
+																{
+																	"key": "id"
+																}
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json"
+														}
+													],
+													"cookie": [],
+													"body": "{\n  \"cityName\": \"<string>\",\n  \"id\": \"<long>\"\n}"
+												}
+											]
+										},
+										{
+											"name": "Update airport by id",
+											"request": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/1.0/airports/:id?cityName=<string>&id=<long>",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"1.0",
+														"airports",
+														":id"
+													],
+													"query": [
+														{
+															"key": "cityName",
+															"value": "<string>",
+															"description": "(Required) "
+														},
+														{
+															"key": "id",
+															"value": "<long>",
+															"description": "(Required) "
+														}
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "<long>",
+															"description": "(Required) "
+														}
+													]
+												}
+											},
+											"response": [
+												{
+													"name": "Airport updated successfully",
+													"originalRequest": {
+														"method": "PUT",
+														"header": [
+															{
+																"key": "Accept",
+																"value": "application/json"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/api/1.0/airports/:id?cityName=<string>&id=<long>",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"api",
+																"1.0",
+																"airports",
+																":id"
+															],
+															"query": [
+																{
+																	"key": "cityName",
+																	"value": "<string>",
+																	"description": "(Required) "
+																},
+																{
+																	"key": "id",
+																	"value": "<long>",
+																	"description": "(Required) "
+																}
+															],
+															"variable": [
+																{
+																	"key": "id"
+																}
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json"
+														}
+													],
+													"cookie": [],
+													"body": "{\n  \"cityName\": \"<string>\",\n  \"id\": \"<long>\"\n}"
+												}
+											]
+										},
+										{
+											"name": "Delete airport by id",
+											"request": {
+												"method": "DELETE",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/1.0/airports/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"1.0",
+														"airports",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id",
+															"value": "<long>",
+															"description": "(Required) "
+														}
+													]
+												}
+											},
+											"response": [
+												{
+													"name": "Airport deleted successfully",
+													"originalRequest": {
+														"method": "DELETE",
+														"header": [
+															{
+																"key": "Accept",
+																"value": "application/json"
+															}
+														],
+														"url": {
+															"raw": "{{baseUrl}}/api/1.0/airports/:id",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"api",
+																"1.0",
+																"airports",
+																":id"
+															],
+															"variable": [
+																{
+																	"key": "id"
+																}
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json"
+														}
+													],
+													"cookie": [],
+													"body": "{\n  \"cityName\": \"<string>\",\n  \"id\": \"<long>\"\n}"
+												}
+											]
+										}
+									]
+								},
+								{
+									"name": "Add airport",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/1.0/airports?cityName=<string>&id=<long>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"1.0",
+												"airports"
+											],
+											"query": [
+												{
+													"key": "cityName",
+													"value": "<string>",
+													"description": "(Required) "
+												},
+												{
+													"key": "id",
+													"value": "<long>",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "Airport added successfully",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/1.0/airports?cityName=<string>&id=<long>",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"1.0",
+														"airports"
+													],
+													"query": [
+														{
+															"key": "cityName",
+															"value": "<string>",
+															"description": "(Required) "
+														},
+														{
+															"key": "id",
+															"value": "<long>",
+															"description": "(Required) "
+														}
+													]
+												}
+											},
+											"status": "Created",
+											"code": 201,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"cityName\": \"<string>\",\n  \"id\": \"<long>\"\n}"
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "auth",
+							"item": [
+								{
+									"name": "sign-up",
+									"item": [
+										{
+											"name": "Add user",
+											"request": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"authorities\": [\n    \"ROLE_USER\",\n    \"ROLE_ADMIN\"\n  ],\n  \"name\": \"<string>\",\n  \"password\": \"<string>\",\n  \"username\": \"<string>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/1.0/auth/sign-up",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"1.0",
+														"auth",
+														"sign-up"
+													]
+												}
+											},
+											"response": [
+												{
+													"name": "User added successfully",
+													"originalRequest": {
+														"method": "POST",
+														"header": [
+															{
+																"key": "Content-Type",
+																"value": "application/json"
+															},
+															{
+																"key": "Accept",
+																"value": "application/json"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n  \"authorities\": [\n    \"ROLE_USER\",\n    \"ROLE_ADMIN\"\n  ],\n  \"name\": \"<string>\",\n  \"password\": \"<string>\",\n  \"username\": \"<string>\"\n}",
+															"options": {
+																"raw": {
+																	"headerFamily": "json",
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{baseUrl}}/api/1.0/auth/sign-up",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"api",
+																"1.0",
+																"auth",
+																"sign-up"
+															]
+														}
+													},
+													"status": "Created",
+													"code": 201,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json"
+														}
+													],
+													"cookie": [],
+													"body": "{\n  \"id\": \"<long>\",\n  \"name\": \"<string>\",\n  \"username\": \"<string>\",\n  \"password\": \"<string>\",\n  \"accountNonExpired\": \"<boolean>\",\n  \"accountNonLocked\": \"<boolean>\",\n  \"credentialsNonExpired\": \"<boolean>\",\n  \"authorities\": [\n    \"ROLE_ADMIN\",\n    \"ROLE_ADMIN\"\n  ],\n  \"enabled\": \"<boolean>\"\n}"
+												}
+											]
+										}
+									]
+								},
+								{
+									"name": "sign-in",
+									"item": [
+										{
+											"name": "Generate token",
+											"request": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													},
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"username\": \"<string>\",\n  \"password\": \"<string>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/1.0/auth/sign-in",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"1.0",
+														"auth",
+														"sign-in"
+													]
+												}
+											},
+											"response": [
+												{
+													"name": "Token generated successfully",
+													"originalRequest": {
+														"method": "POST",
+														"header": [
+															{
+																"key": "Content-Type",
+																"value": "application/json"
+															},
+															{
+																"key": "Accept",
+																"value": "application/json"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n  \"username\": \"<string>\",\n  \"password\": \"<string>\"\n}",
+															"options": {
+																"raw": {
+																	"headerFamily": "json",
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{baseUrl}}/api/1.0/auth/sign-in",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"api",
+																"1.0",
+																"auth",
+																"sign-in"
+															]
+														}
+													},
+													"status": "Created",
+													"code": 201,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json"
+														}
+													],
+													"cookie": [],
+													"body": "{\n  \"id\": \"<long>\",\n  \"name\": \"<string>\",\n  \"username\": \"<string>\",\n  \"password\": \"<string>\",\n  \"accountNonExpired\": \"<boolean>\",\n  \"accountNonLocked\": \"<boolean>\",\n  \"credentialsNonExpired\": \"<boolean>\",\n  \"authorities\": [\n    \"ROLE_ADMIN\",\n    \"ROLE_ADMIN\"\n  ],\n  \"enabled\": \"<boolean>\"\n}"
+												}
+											]
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "search",
+							"item": [
+								{
+									"name": "get flights by time and airport",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/1.0/search?arrivalCity=<string>&departureCity=<string>&departureDate=<date>&arrivalCity=<string>&departureCity=<string>&departureDate=<date>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"1.0",
+												"search"
+											],
+											"query": [
+												{
+													"key": "arrivalCity",
+													"value": "<string>",
+													"description": "(Required) "
+												},
+												{
+													"key": "departureCity",
+													"value": "<string>",
+													"description": "(Required) "
+												},
+												{
+													"key": "departureDate",
+													"value": "<date>",
+													"description": "(Required) "
+												},
+												{
+													"key": "arrivalCity",
+													"value": "<string>"
+												},
+												{
+													"key": "departureCity",
+													"value": "<string>"
+												},
+												{
+													"key": "departureDate",
+													"value": "<date>"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "Flights retrieved successfully",
+											"originalRequest": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/1.0/search?arrivalCity=<string>&departureCity=<string>&departureDate=<date>",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"1.0",
+														"search"
+													],
+													"query": [
+														{
+															"key": "arrivalCity",
+															"value": "<string>",
+															"description": "(Required) "
+														},
+														{
+															"key": "departureCity",
+															"value": "<string>",
+															"description": "(Required) "
+														},
+														{
+															"key": "departureDate",
+															"value": "<date>",
+															"description": "(Required) "
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"arrivalTime\": \"<dateTime>\",\n  \"departureTime\": \"<dateTime>\",\n  \"price\": \"<double>\",\n  \"id\": \"<long>\",\n  \"departureAirport\": {\n    \"cityName\": \"<string>\",\n    \"id\": \"<long>\"\n  },\n  \"arrivalAirport\": {\n    \"cityName\": \"<string>\",\n    \"id\": \"<long>\"\n  }\n}"
+										}
+									]
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:3535"
+		}
+	]
+}

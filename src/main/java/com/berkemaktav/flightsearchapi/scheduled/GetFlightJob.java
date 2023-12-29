@@ -15,9 +15,9 @@ import java.util.Objects;
 @Service
 public class GetFlightJob {
 
+    private final FlightRepository flightRepository;
     @Value("${api.flight.url}")
     private String API_URL;
-    private final FlightRepository flightRepository;
 
     public GetFlightJob(FlightRepository flightRepository) {
         this.flightRepository = flightRepository;

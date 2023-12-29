@@ -12,6 +12,7 @@ import jakarta.validation.Valid;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -19,6 +20,7 @@ import org.springframework.web.bind.annotation.*;
 public class AirportController {
     private final AirportService airportService;
     private final Logger logger = LoggerFactory.getLogger(AirportController.class);
+
 
     public AirportController(AirportService airportService) {
         this.airportService = airportService;
@@ -30,9 +32,9 @@ public class AirportController {
             content = @Content(mediaType = "application/json", schema = @Schema(implementation = Airport.class)))})
     @PostMapping
     @ResponseStatus(code = HttpStatus.CREATED)
-    public AirportDto addAirport(@RequestParam @Valid Airport airport) {
+    public ResponseEntity<AirportDto> addAirport(@RequestParam @Valid Airport airport) {
         logger.info("AirportController.addAirport() called");
-        return airportService.addAirport(airport);
+        return new ResponseEntity<>(airportService.addAirport(airport),HttpStatus.CREATED);
     }
 
     @Operation(summary = "Get airport by id")
@@ -40,9 +42,9 @@ public class AirportController {
             description = "Airport retrieved successfully",
             content = @Content(mediaType = "application/json", schema = @Schema(implementation = Airport.class)))})
     @GetMapping("/{id}")
-    public Airport getAirportById(@PathVariable Long id) {
+    public ResponseEntity<Airport> getAirportById(@PathVariable Long id) {
         logger.info("AirportController.getAirportById() called");
-        return airportService.getAirportById(id);
+        return ResponseEntity.ok(airportService.getAirportById(id));
     }
 
     @Operation(summary = "Delete airport by id")
@@ -60,8 +62,8 @@ public class AirportController {
             description = "Airport updated successfully",
             content = @Content(mediaType = "application/json", schema = @Schema(implementation = Airport.class)))})
     @PutMapping("/{id}")
-    public AirportDto updateAirport(@PathVariable Long id, @RequestParam @Valid Airport airport) {
+    public ResponseEntity<AirportDto> updateAirport(@PathVariable Long id, @RequestParam @Valid Airport airport) {
         logger.info("AirportController.updateAirport() called");
-        return airportService.updateAirport(id, airport);
+        return ResponseEntity.ok(airportService.updateAirport(id, airport));
     }
 }

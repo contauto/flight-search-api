@@ -9,7 +9,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 @Repository
-public interface FlightRepository extends JpaRepository<Flight, Long>{
+public interface FlightRepository extends JpaRepository<Flight, Long> {
     @Query("SELECT f FROM Flight f WHERE f.departureAirport = ?1 AND f.arrivalAirport = ?2 AND f.departureTime = ?3")
     List<Flight> getOneWayFlights(String departureCity, String arrivalCity, LocalDate departureDate);
 

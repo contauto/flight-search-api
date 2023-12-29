@@ -34,7 +34,7 @@ public class AirportService {
     public AirportDto updateAirport(long id, Airport airport) {
         Airport existingAirport = airportRepository.findById(id).orElseThrow(EntityNotFoundException::new);
         existingAirport.setCityName(airport.getCityName());
-        Airport saved= airportRepository.save(existingAirport);
+        Airport saved = airportRepository.save(existingAirport);
         logger.info("Airport updated successfully. Airport: {}", saved);
         return new AirportDto(saved.getCityName());
     }

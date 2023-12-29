@@ -34,7 +34,7 @@ public class UserService implements UserDetailsService {
         return userRepository.findByUsername(username);
     }
 
-    public User createUser(UserDto request) {
+    public UserDto createUser(UserDto request) {
 
         User newUser = new User(
                 request.name(),
@@ -46,7 +46,12 @@ public class UserService implements UserDetailsService {
                 true,
                 request.authorities()
         );
-
-        return userRepository.save(newUser);
+        User saved = userRepository.save(newUser);
+        return new UserDto(
+                saved.getName(),
+                saved.getUsername(),
+                saved.getPassword(),
+                saved.getAuthorities()
+        );
     }
 }

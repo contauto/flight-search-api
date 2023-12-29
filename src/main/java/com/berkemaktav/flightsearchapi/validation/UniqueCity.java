@@ -13,6 +13,8 @@ import java.lang.annotation.Target;
 @Constraint(validatedBy = UniqueCityValidator.class)
 public @interface UniqueCity {
     String message() default "City already exists";
+
     Class<?>[] groups() default {};
+
     Class<? extends Payload>[] payload() default {};
 }

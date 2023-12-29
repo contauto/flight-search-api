@@ -11,6 +11,8 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import jakarta.validation.Valid;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -44,8 +46,8 @@ public class AuthController {
             description = "User added successfully",
             content = @Content(mediaType = "application/json", schema = @Schema(implementation = User.class)))})
     @PostMapping("/sign-up")
-    public User addUser(@RequestBody @Valid UserDto request) {
-        return service.createUser(request);
+    public ResponseEntity<UserDto> addUser(@RequestBody @Valid UserDto request) {
+        return ResponseEntity.ok(service.createUser(request));
     }
 
     @Operation(summary = "Generate token")
@@ -53,10 +55,10 @@ public class AuthController {
             description = "Token generated successfully",
             content = @Content(mediaType = "application/json", schema = @Schema(implementation = User.class)))})
     @PostMapping("/sign-in")
-    public String generateToken(@RequestBody @Valid Auth request) {
+    public ResponseEntity<String> generateToken(@RequestBody @Valid Auth request) {
         Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(request.username(), request.password()));
         if (authentication.isAuthenticated()) {
-            return jwtService.generateToken(request.username());
+            return new ResponseEntity<>(jwtService.generateToken(request.username()), HttpStatus.CREATED);
         }
         log.info("invalid username " + request.username());
         throw new UsernameNotFoundException("invalid username {} " + request.username());

@@ -11,6 +11,7 @@ import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import jakarta.validation.Valid;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -30,9 +31,9 @@ public class FlightController {
             description = "Flights retrieved successfully",
             content = @Content(mediaType = "application/json", schema = @Schema(implementation = Flight.class)))})
     @GetMapping("/all")
-    public List<Flight> getAllFlights() {
+    public ResponseEntity<List<Flight>> getAllFlights() {
         logger.info("getAllFlights() called");
-        return flightService.getAllFlights();
+        return ResponseEntity.ok(flightService.getAllFlights());
     }
 
     @Operation(summary = "add flight")
@@ -40,9 +41,9 @@ public class FlightController {
             description = "Flight added successfully",
             content = @Content(mediaType = "application/json", schema = @Schema(implementation = Flight.class)))})
     @PostMapping
-    public FlightDto addFlight(@Valid @RequestParam Flight flight) {
+    public ResponseEntity<FlightDto> addFlight(@Valid @RequestParam Flight flight) {
         logger.info("addFlight() called");
-        return flightService.addFlight(flight);
+        return new ResponseEntity<>(flightService.addFlight(flight), null, 201);
     }
 
     @Operation(summary = "get flight by id")
@@ -50,9 +51,9 @@ public class FlightController {
             description = "Flight retrieved successfully",
             content = @Content(mediaType = "application/json", schema = @Schema(implementation = Flight.class)))})
     @GetMapping("/{id}")
-    public Flight getFlightById(@PathVariable Long id) {
+    public ResponseEntity<Flight> getFlightById(@PathVariable Long id) {
         logger.info("getFlightById() called");
-        return flightService.getFlightById(id);
+        return ResponseEntity.ok(flightService.getFlightById(id));
     }
 
     @Operation(summary = "delete flight by id")
@@ -70,9 +71,9 @@ public class FlightController {
             description = "Flight updated successfully",
             content = @Content(mediaType = "application/json", schema = @Schema(implementation = Flight.class)))})
     @PutMapping("/{id}")
-    public FlightDto updateFlightById(@PathVariable Long id, @Valid Flight flight) {
+    public ResponseEntity<FlightDto> updateFlightById(@PathVariable Long id, @Valid Flight flight) {
         logger.info("updateFlightById() called");
-        return flightService.updateFlightById(id, flight);
+        return ResponseEntity.ok(flightService.updateFlightById(id, flight));
     }
 
 }

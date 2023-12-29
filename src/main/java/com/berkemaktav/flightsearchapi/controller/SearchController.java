@@ -10,6 +10,7 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -28,15 +29,14 @@ public class SearchController {
     }
 
 
-
     @Operation(summary = "get flights by time and airport")
     @ApiResponses(value = {@ApiResponse(responseCode = "200",
             description = "Flights retrieved successfully",
             content = @Content(mediaType = "application/json", schema = @Schema(implementation = Flight.class)))})
     @GetMapping
-    public List<Flight> getFlightsByTimeAndAirport(@RequestParam() SearchFlight first,
-                                                   @RequestParam(required = false) SearchFlight second) {
+    public ResponseEntity<List<Flight>> getFlightsByTimeAndAirport(@RequestParam() SearchFlight first,
+                                                                   @RequestParam(required = false) SearchFlight second) {
         logger.info("getFlightsByTimeAndAirport() called");
-        return flightService.getFlightsByTimeAndAirport(first, second);
+        return ResponseEntity.ok(flightService.getFlightsByTimeAndAirport(first, second));
     }
 }

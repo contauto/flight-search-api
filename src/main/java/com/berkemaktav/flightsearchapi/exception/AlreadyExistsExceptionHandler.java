@@ -5,9 +5,9 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
 @ControllerAdvice
-public class AlreadyExistsExceptionHandler{
+public class AlreadyExistsExceptionHandler {
     @ExceptionHandler(AlreadyExistsException.class)
-    public ResponseEntity<Object> handleAlreadyExistsException(AlreadyExistsException exception){
-        return  ResponseEntity.badRequest().body(exception.getMessage());
+    public ResponseEntity<Object> handleAlreadyExistsException(AlreadyExistsException exception) {
+        return ResponseEntity.badRequest().body(exception.getMessage());
     }
 }
